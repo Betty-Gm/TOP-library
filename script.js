@@ -23,7 +23,7 @@ function displayBooks(myLibrary){
     for(let a=0; a<myLibrary.length; a++){
        
         let bookCard= document.createElement("div");
-        //bookCard.classList.add("card");
+        bookCard.classList.add("card");
 
         bookCard.dataset.id= myLibrary[a].id;
 

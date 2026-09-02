@@ -1,6 +1,10 @@
 body{
-    margin: 0;
+    margin: 10px;
     height: 100vh;
+    background-color:#f5ecdc ;
+    border: 2px solid #6b4226;
+    box-shadow: 6px 6px 10px 5px #6b4226 ;
+    padding: 20px;
 }
 form{
     background-color: cadetblue;
@@ -9,4 +13,17 @@ form{
     padding: 10px;
     margin: 10px;
     box-shadow: 1px 5px 10px cadetblue;
+}
+.book-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+}
+.card{
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #8b5e3c;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #2b1b0f;
+
 }
