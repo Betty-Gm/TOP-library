@@ -84,17 +84,25 @@ function renderForm(){
     sidebar.innerHTML= `
       <form id= "dynamic-form" action= "#" method= "post">
         <h3>New Book</h3>
+        <div>
         <label for="titleid">Title</label>
         <input type="text" id="titleid">
+        </div>
+        <div>
         <label for="authorid">Author</label>
         <input type="text" id="authorid">
+        </div>
+        <div>
         <label for="pageid">Number of pages</label>
         <input type="number" name="" id="pageid">
+        </div>
+        <div>
         <label for="readid">Already Read</label>
         <input type="radio" value="True" id="true" name = "readingStatus" >
         <label for ="true" >True</label>
         <input type="radio" value= "False" id="false" name = "readingStatus" >
         <label for ="false" >false</label>
+        </div>
 
 
 

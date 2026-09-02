@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+form{
+    background-color: cadetblue;
+    border: 2px solid cadetblue;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 1px 5px 10px cadetblue;
+}
