@@ -23,6 +23,7 @@ function displayBooks(myLibrary){
     for(let a=0; a<myLibrary.length; a++){
        
         let bookCard= document.createElement("div");
+        //bookCard.classList.add("card");
 
         bookCard.dataset.id= myLibrary[a].id;
 
@@ -31,12 +32,13 @@ function displayBooks(myLibrary){
         let author= document.createElement("li");
         let page= document.createElement("li");
         let read= document.createElement("li");
+        read.classList.add("toggle");
         let removebtn= document.createElement("button");
 
-        title.textContent= myLibrary[a].title;
-        author.textContent= myLibrary[a].author;
-        page.textContent= myLibrary[a].page;
-        read.textContent= myLibrary[a].read;
+        title.textContent= "Title: " + myLibrary[a].title;
+        author.textContent= "Author: "+myLibrary[a].author;
+        page.textContent= "Number of Pages: "+myLibrary[a].page;
+        read.textContent= "Already Read: " + myLibrary[a].read;
         removebtn.textContent= "Remove Book";
 
         list.appendChild(title);
@@ -52,7 +54,6 @@ function displayBooks(myLibrary){
 
 }
 
-// adding event listener for remove book button
 bookContainer.addEventListener("click",(e)=>{
     if (e.target.tagName==="BUTTON"){
        
@@ -63,6 +64,14 @@ bookContainer.addEventListener("click",(e)=>{
        const index= myLibrary.findIndex((obj)=>obj.id=== bookId);
        myLibrary.splice(index,1);
        displayBooks(myLibrary);
+        
+    }
+    if (e.target.classList.contains("toggle")){
+        const card= e.target.closest("[data-id]");
+        const bookId= card.dataset.id;
+        const index= myLibrary.findIndex((obj)=>obj.id==bookId);
+        myLibrary[index].toggleRead();
+        displayBooks(myLibrary);
         
     }
 
@@ -145,3 +154,9 @@ function renderForm(){
     renderForm();
 
  });
+
+ Book.prototype.toggleRead= function(){
+    
+    this.read= this.read==="True"? "False":"True";
+}
+
