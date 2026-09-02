@@ -23,29 +23,51 @@ function displayBooks(myLibrary){
     for(let a=0; a<myLibrary.length; a++){
        
         let bookCard= document.createElement("div");
+
+        bookCard.dataset.id= myLibrary[a].id;
+
         let list= document.createElement("ul");
         let title= document.createElement("li");
         let author= document.createElement("li");
         let page= document.createElement("li");
         let read= document.createElement("li");
+        let removebtn= document.createElement("button");
 
         title.textContent= myLibrary[a].title;
         author.textContent= myLibrary[a].author;
         page.textContent= myLibrary[a].page;
         read.textContent= myLibrary[a].read;
+        removebtn.textContent= "Remove Book";
 
         list.appendChild(title);
         list.appendChild(author);
         list.appendChild(page);
         list.appendChild(read);
+
         bookCard.appendChild(list);
+        bookCard.appendChild(removebtn);
         bookContainer.appendChild(bookCard);
 
     }
 
 }
 
+// adding event listener for remove book button
+bookContainer.addEventListener("click",(e)=>{
+    if (e.target.tagName==="BUTTON"){
+       
+        const card= e.target.closest("[data-id]");
 
+       // bookContainer.removeChild(card);
+       const bookId = card.dataset.id;
+       const index= myLibrary.findIndex((obj)=>obj.id=== bookId);
+       myLibrary.splice(index,1);
+       displayBooks(myLibrary);
+        
+    }
+
+
+});
 
 // adding a "new book" button
 function renderForm(){
