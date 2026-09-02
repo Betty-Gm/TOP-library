@@ -81,8 +81,12 @@ function renderForm(){
         <input type="text" id="authorid">
         <label for="pageid">Number of pages</label>
         <input type="number" name="" id="pageid">
-        <label for="readid">reading status</label>
-        <input type="text" id="readid">
+        <label for="readid">Already Read</label>
+        <input type="radio" value="True" id="true" name = "readingStatus" >
+        <label for ="true" >True</label>
+        <input type="radio" value= "False" id="false" name = "readingStatus" >
+        <label for ="false" >false</label>
+
 
 
         <button id="submit-id" type= "button">Submit</button>
@@ -99,22 +103,37 @@ function renderForm(){
     const titleBtn= document.getElementById("titleid");
     const authorBtn= document.getElementById("authorid");
     const pageBtn= document.getElementById("pageid");
-    const readBtn= document.getElementById("readid");
+    const readBtn1= document.getElementById("true");
+    const readBtn2= document.getElementById("false");
+    let selected= readBtn1.checked?readBtn1:readBtn2;
+
+    console.log("readBtn1.checked:", readBtn1.checked, "readBtn2.checked:", readBtn2.checked);
+
+
     submitBtn.addEventListener("click", (event)=>{
         event.preventDefault();
-        addBookToLibrary(titleBtn.value, authorBtn.value, pageBtn.value, readBtn.value);
+         let selected= readBtn1.checked?readBtn1:readBtn2;
+
+   
+
+        addBookToLibrary(titleBtn.value, authorBtn.value, pageBtn.value, selected.value);
         titleBtn.value="";
         authorBtn.value= "";
         pageBtn.value= 0;
-        readBtn.value= "";
+        selected.checked = false;
+      
 
     });
     cancelBtn.addEventListener("click", (event)=>{
         event.preventDefault();
+        
+        let selected= readBtn1.checked?readBtn1:readBtn2;
+
+
         titleBtn.value="";
         authorBtn.value= "";
         pageBtn.value= "";
-        readBtn.value= "";
+        selected.checked= false;
     })
 
 
