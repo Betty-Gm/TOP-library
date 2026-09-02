@@ -7,12 +7,12 @@ body{
     padding: 20px;
 }
 form{
-    background-color: cadetblue;
-    border: 2px solid cadetblue;
+    background-color: #e8d5b7;
+    border: 2px solid #8b5e3c;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    box-shadow: 1px 5px 10px cadetblue;
+    box-shadow: 1px 5px 10px #e8d5b7;
 }
 .book-container{
     display: grid;
@@ -26,4 +26,7 @@ form{
     border-radius: 10px;
     box-shadow: 5px 10px 10px #2b1b0f;
 
+}
+li{
+    list-style: none;
 }

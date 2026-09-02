@@ -85,16 +85,16 @@ function renderForm(){
       <form id= "dynamic-form" action= "#" method= "post">
         <h3>New Book</h3>
         <div>
-        <label for="titleid">Title</label>
-        <input type="text" id="titleid">
+        <label for="titleid" >Title</label>
+        <input type="text" id="titleid" required>
         </div>
         <div>
         <label for="authorid">Author</label>
-        <input type="text" id="authorid">
+        <input type="text" id="authorid" required>
         </div>
         <div>
         <label for="pageid">Number of pages</label>
-        <input type="number" name="" id="pageid">
+        <input type="number" name="" id="pageid"required>
         </div>
         <div>
         <label for="readid">Already Read</label>
@@ -106,8 +106,8 @@ function renderForm(){
 
 
 
-        <button id="submit-id" type= "button">Submit</button>
-        <button id = "cancel-id">Cancel</button>
+        <button id="submit-id" type= "submit">Submit</button>
+        <button id = "cancel-id" type = "button">Cancel</button>
 
         
     </form>
@@ -124,25 +124,24 @@ function renderForm(){
     const readBtn2= document.getElementById("false");
     let selected= readBtn1.checked?readBtn1:readBtn2;
 
-    console.log("readBtn1.checked:", readBtn1.checked, "readBtn2.checked:", readBtn2.checked);
 
+    const form= document.getElementById("dynamic-form");
+    
 
-    submitBtn.addEventListener("click", (event)=>{
+    form.addEventListener("submit", (event)=>{
         event.preventDefault();
+     
          let selected= readBtn1.checked?readBtn1:readBtn2;
-
-   
-
         addBookToLibrary(titleBtn.value, authorBtn.value, pageBtn.value, selected.value);
         titleBtn.value="";
         authorBtn.value= "";
-        pageBtn.value= 0;
+        pageBtn.value= "";
         selected.checked = false;
-
-
         // to make the form disappear after submit
        
         sidebar.innerHTML="";
+        
+       
         
     });
     cancelBtn.addEventListener("click", (event)=>{
