@@ -130,20 +130,27 @@ function renderForm(){
         authorBtn.value= "";
         pageBtn.value= 0;
         selected.checked = false;
-      
 
+
+        // to make the form disappear after submit
+       
+        sidebar.innerHTML="";
+        
     });
     cancelBtn.addEventListener("click", (event)=>{
         event.preventDefault();
         
         let selected= readBtn1.checked?readBtn1:readBtn2;
-
-
+        
+        
         titleBtn.value="";
         authorBtn.value= "";
         pageBtn.value= "";
         selected.checked= false;
-    })
+        
+        // to make the form disappear after cancel
+        sidebar.innerHTML="";
+    });
 
 
 
